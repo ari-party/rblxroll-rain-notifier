@@ -1,0 +1,40 @@
+{
+	"name": "rblxroll-rain-notifier",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "dotenv next dev",
+		"start": "dotenv next start",
+		"build": "next build",
+		"lint": "next lint"
+	},
+	"license": "LGPL-3.0-only",
+	"author": {
+		"name": "Astrid",
+		"url": "https://www.astrid.exposed",
+		"email": "github@astrid.exposed"
+	},
+	"repository": {
+		"url": "https://github.com/robertsspaceindustries/rblxroll-rain-notifier"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@emotion/styled": "^11.11.0",
+		"@mui/material": "^5.14.9",
+		"@robertsspaceindustries/react-localsettings": "^1.0.5",
+		"dotenv": "^16.3.1",
+		"next": "^13.4.19",
+		"prop-types": "^15.8.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"sharp": "^0.32.5",
+		"socket.io-client": "^4.7.2"
+	},
+	"devDependencies": {
+		"dotenv-cli": "^7.3.0",
+		"eslint": "^8.49.0",
+		"eslint-config-next": "^13.4.19",
+		"eslint-plugin-react": "^7.33.2"
+	}
+}

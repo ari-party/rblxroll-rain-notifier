@@ -1,0 +1,35 @@
+.primary {
+	color: var(--primary);
+	font-weight: var(--primaryWeight);
+	font-family: var(--primaryFont);
+}
+.primaryHeavy {
+	font-weight: 700;
+}
+.primary * {
+	color: var(--onPrimary);
+}
+
+.primaryVariant {
+	color: var(--primaryVariant);
+	font-weight: var(--primaryVariantWeight);
+	font-family: var(--primaryVariantFont);
+}
+.primaryVariant * {
+	color: var(--onPrimaryVariant);
+}
+
+.secondary {
+	color: var(--secondary);
+	font-weight: var(--secondaryWeight);
+	font-family: var(--secondaryFont);
+}
+.secondary * {
+	color: var(--onSecondary);
+}
+
+.eyebrow {
+	font-weight: 500;
+	color: #ffffff4a;
+	margin-bottom: 4px;
+}
