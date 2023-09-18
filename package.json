@@ -24,10 +24,12 @@
 		"@mui/material": "^5.14.9",
 		"@robertsspaceindustries/react-localsettings": "^1.0.5",
 		"dotenv": "^16.3.1",
+		"i18next": "^23.5.1",
 		"next": "^13.4.19",
 		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-i18next": "^13.2.2",
 		"sharp": "^0.32.5",
 		"socket.io-client": "^4.7.2"
 	},
