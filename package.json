@@ -28,6 +28,7 @@
 		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-localization": "^1.0.19",
 		"sharp": "^0.32.5",
 		"socket.io-client": "^4.7.2"
 	},
