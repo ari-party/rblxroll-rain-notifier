@@ -15,8 +15,8 @@ function numberfy(amount) {
 }
 
 export default function Notifier() {
-	const [primary, setPrimary] = useState(<Ellipsis prefix={strings.socketConnecting} />);
-	const [sub, setSub] = useState(strings.socketConnectingDescription);
+	const [primary, setPrimary] = useState(<Ellipsis prefix={strings.socket.connecting} />);
+	const [sub, setSub] = useState(strings.socket.connectingDescription);
 
 	const [soundEnabled, setSoundEnabled] = useLocalStorage("sound", true);
 	const [notificationEnabled, setNotificationEnabled] = useLocalStorage("notification", false);
@@ -39,15 +39,15 @@ export default function Notifier() {
 		});
 
 		socket.on("connect", () => {
-			setPrimary(strings.socketConnected);
-			setSub(strings.socketConnectedDescription);
-			document.title = "Rain Notifier - Connected";
+			setPrimary(strings.socket.connected);
+			setSub(strings.socket.connectedDescription);
+			document.title = strings.socket.title.connect;
 		});
 
 		socket.on("disconnect", () => {
-			setPrimary(<Ellipsis prefix={strings.socketReconnecting} />);
-			setSub(strings.socketReconnectingDescription);
-			document.title = "Rain Notifier - Reconnecting";
+			setPrimary(<Ellipsis prefix={strings.socket.reconnecting} />);
+			setSub(strings.socket.reconnectingDescription);
+			document.title = strings.socket.title.disconnect;
 		});
 
 		socket.on("rainRunning", function (rain) {
@@ -59,7 +59,7 @@ export default function Notifier() {
 				}
 
 				if (notificationEnabled && notificationHasPermission) {
-					new Notification("RBLXRoll: Rain Notifier", { body: `A rain of ${numberfy(rain.amount)} R$ is running` });
+					new Notification(strings.socket.notification.title, { body: strings.socket.notification.body(numberfy(rain.amount)) });
 				}
 			}
 		});
@@ -74,10 +74,10 @@ export default function Notifier() {
 			<div className={styles.settings}>
 				<span className={text.eyebrow}>Settings</span>
 				<div className={styles.settingContainer}>
-					<Setting name="Sound" description="Play a sound whenever a rain is running">
+					<Setting name="Sound" description={strings.plugins.Sound.description}>
 						<InputSwitch isChecked={soundEnabled} onChange={(e) => setSoundEnabled(e.target.checked)} />
 					</Setting>
-					<Setting name="Notification" description="Show a notification whenever a rain is running">
+					<Setting name="Notification" description={strings.plugins.Notification.description}>
 						<InputSwitch
 							disabled={notificationDisabled}
 							isChecked={notificationDisabled ? false : notificationHasPermission ? notificationEnabled : false}
