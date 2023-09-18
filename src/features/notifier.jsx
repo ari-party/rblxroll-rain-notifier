@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "@/styles/notifier.module.css";
 import { merge } from "@/utils/merge";
 import text from "@/styles/text.module.css";
@@ -20,13 +20,10 @@ export default function Notifier() {
 
 	const [soundEnabled, setSoundEnabled] = useLocalStorage("sound", true);
 	const [notificationEnabled, setNotificationEnabled] = useLocalStorage("notification", false);
-
-	const [notificationDisabled, setNotificationDisabled] = useState(false);
-	const [notificationHasPermission, setNotificationPermission] = useState(false);
+	const [notificationBlocked, setNotificationBlocked] = useState(false);
 	useEffect(() => {
-		setNotificationDisabled(!("Notification" in window));
-		setNotificationPermission(Notification.permission === "granted");
-	}, [setNotificationDisabled, setNotificationPermission]);
+		setNotificationBlocked(!("Notification" in window));
+	}, [setNotificationBlocked]);
 
 	useEffect(() => {
 		// https://notificationsounds.com/message-tones/out-of-nowhere-message-tone
@@ -51,21 +48,21 @@ export default function Notifier() {
 		});
 
 		socket.on("rainRunning", function (rain) {
-			if (localStorage.getItem("lastRain") !== rain._id) {
-				localStorage.setItem("lastRain", rain._id);
+			if (localStorage.getItem("rain-cache") !== rain._id) {
+				localStorage.setItem("rain-cache", rain._id);
 
 				if (soundEnabled) {
 					notificationSound.play();
 				}
 
-				if (notificationEnabled && notificationHasPermission) {
+				if (notificationEnabled && !notificationBlocked) {
 					new Notification(strings.socket.notification.title, { body: strings.socket.notification.body(numberfy(rain.amount)) });
 				}
 			}
 		});
 
 		return () => socket.disconnect();
-	}, [soundEnabled, notificationEnabled, notificationHasPermission]);
+	}, [soundEnabled, notificationEnabled, notificationBlocked]);
 
 	return (
 		<div className={styles.notifier}>
@@ -75,27 +72,34 @@ export default function Notifier() {
 				<span className={text.eyebrow}>Settings</span>
 				<div className={styles.settingContainer}>
 					<Setting name="Sound" description={strings.plugins.Sound.description}>
-						<InputSwitch isChecked={soundEnabled} onChange={(e) => setSoundEnabled(e.target.checked)} />
+						<InputSwitch
+							isChecked={soundEnabled}
+							onChange={useCallback(
+								(e) => {
+									const checked = e.target.checked;
+									setSoundEnabled(checked);
+								},
+								[setSoundEnabled],
+							)}
+						/>
 					</Setting>
 					<Setting name="Notification" description={strings.plugins.Notification.description}>
 						<InputSwitch
-							disabled={notificationDisabled}
-							isChecked={notificationDisabled ? false : notificationHasPermission ? notificationEnabled : false}
-							// If the Notification api is unavailable: false, if the page doesn't have permission for notifications: false, otherwise use the setting's value
-							onChange={(e) => {
-								if (e.target.checked) {
-									setNotificationEnabled(true);
+							disabled={notificationBlocked}
+							isChecked={notificationEnabled}
+							onChange={useCallback(
+								(e) => {
+									const checked = e.target.checked;
 									if (Notification.permission !== "granted") {
-										Notification.requestPermission().then((result) => {
-											if (result !== "granted") {
-												setNotificationEnabled(false);
-											}
+										Notification.requestPermission().then(() => {
+											setNotificationEnabled(checked);
 										});
+									} else {
+										setNotificationEnabled(checked);
 									}
-								} else {
-									setNotificationEnabled(e.target.checked);
-								}
-							}}
+								},
+								[setNotificationEnabled],
+							)}
 						/>
 					</Setting>
 				</div>
