@@ -23,7 +23,7 @@ export default function Index() {
 		<>
 			<Helmet>
 				<title>{t("pageTitle")}</title>
-				{/* https://ogp.me/ */}
+				<meta property="og:type" content="website" />
 				<meta property="og:title" content={t("pageTitle")} />
 				<meta name="og:description" content={t("pageDescription")} />
 			</Helmet>
