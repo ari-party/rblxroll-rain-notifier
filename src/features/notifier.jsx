@@ -6,7 +6,7 @@ import Ellipsis from "@/components/ellipsis";
 import Setting, { InputSwitch } from "../components/setting";
 import useLocalStorage from "@robertsspaceindustries/react-localsettings";
 import { io } from "socket.io-client";
-import strings from "@/constants/strings";
+import { useTranslation } from "next-i18next";
 
 function numberfy(amount) {
 	amount = Number(amount).toFixed(2).split(".");
@@ -15,8 +15,10 @@ function numberfy(amount) {
 }
 
 export default function Notifier() {
-	const [primary, setPrimary] = useState(<Ellipsis prefix={strings.socket.connecting} />);
-	const [sub, setSub] = useState(strings.socket.connectingDescription);
+	const { t } = useTranslation();
+
+	const [primary, setPrimary] = useState(<Ellipsis prefix={t("socketConnecting")} />);
+	const [sub, setSub] = useState(t("socketConnectingDescription"));
 
 	const [soundEnabled, setSoundEnabled] = useLocalStorage("sound", true);
 	const [notificationEnabled, setNotificationEnabled] = useLocalStorage("notification", false);
@@ -36,15 +38,15 @@ export default function Notifier() {
 		});
 
 		socket.on("connect", () => {
-			setPrimary(strings.socket.connected);
-			setSub(strings.socket.connectedDescription);
-			document.title = strings.socket.title.connect;
+			setPrimary(t("socketConnected"));
+			setSub(t("socketConnectedDescription"));
+			document.title = t("pageTitleConnected");
 		});
 
 		socket.on("disconnect", () => {
-			setPrimary(<Ellipsis prefix={strings.socket.reconnecting} />);
-			setSub(strings.socket.reconnectingDescription);
-			document.title = strings.socket.title.disconnect;
+			setPrimary(<Ellipsis prefix={t("socketReconnecting")} />);
+			setSub(t("socketReconnectingDescription"));
+			document.title = t("pageTitleReconnecting");
 		});
 
 		socket.on("rainRunning", function (rain) {
@@ -56,22 +58,24 @@ export default function Notifier() {
 				}
 
 				if (notificationEnabled && !notificationBlocked) {
-					new Notification(strings.socket.notification.title, { body: strings.socket.notification.body(numberfy(rain.amount)) });
+					new Notification(t("socketNotificationTitle"), {
+						body: t("socketNotificationBody", { amount: numberfy(rain.amount) }),
+					});
 				}
 			}
 		});
 
 		return () => socket.disconnect();
-	}, [soundEnabled, notificationEnabled, notificationBlocked]);
+	}, [t, soundEnabled, notificationEnabled, notificationBlocked]);
 
 	return (
 		<div className={styles.notifier}>
 			<h1 className={merge(text.primary, text.primaryHeavy)}>{primary}</h1>
 			<span className={styles.sub}>{sub}</span>
 			<div className={styles.settings}>
-				<span className={text.eyebrow}>Settings</span>
+				<span className={text.eyebrow}>{t("settings")}</span>
 				<div className={styles.settingContainer}>
-					<Setting name="Sound" description={strings.plugins.Sound.description}>
+					<Setting name={t("settingsSoundName")} description={t("settingsSoundDescription")}>
 						<InputSwitch
 							isChecked={soundEnabled}
 							onChange={useCallback(
@@ -83,7 +87,7 @@ export default function Notifier() {
 							)}
 						/>
 					</Setting>
-					<Setting name="Notification" description={strings.plugins.Notification.description}>
+					<Setting name={t("settingsNotificationName")} description={t("settingsNotificationDescription")}>
 						<InputSwitch
 							disabled={notificationBlocked}
 							isChecked={notificationEnabled}

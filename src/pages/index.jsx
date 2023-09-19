@@ -5,10 +5,22 @@ import Image from "next/image";
 import iconGithubMarkWhite from "@public/assets/github-mark-white.png";
 import Notifier from "@/features/notifier";
 import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+	return {
+		props: {
+			...(await serverSideTranslations(locale, ["common"])),
+		},
+	};
+}
 
 export default function Index() {
+	const { t } = useTranslation();
+
 	useEffect(() => {
-		document.title = "Rain Notifier";
+		document.title = t("pageTitle");
 	});
 
 	return (
@@ -20,7 +32,7 @@ export default function Index() {
 			</div>
 			<footer className={styles.footer}>
 				<Link className={styles.github} href="https://github.com/robertsspaceindustries/rblxroll-rain-notifier" target="_blank">
-					Explore this site on <Image src={iconGithubMarkWhite} alt="GitHub" width={20} />
+					{t("footerGithub")} <Image src={iconGithubMarkWhite} alt="GitHub" width={20} />
 				</Link>
 			</footer>
 		</main>
