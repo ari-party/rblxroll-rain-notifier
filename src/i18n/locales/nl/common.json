@@ -2,6 +2,7 @@
 	"pageTitle": "Rain Notifier",
 	"pageTitleConnected": "Rain Notifier - Verbonden",
 	"pageTitleReconnecting": "Rain Notifier - Herverbinden",
+	"pageDescription": "Een webgebaseerde rain notifier voor RBLXRoll",
 	"socketConnecting": "Verbinden",
 	"socketConnectingDescription": "We verbinden je aan onze socket voor actuele notificaties",
 	"socketConnected": "Verbonden",
