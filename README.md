@@ -8,7 +8,8 @@
 
 ## Self hosting
 
-You can host this site yourself, build using next with `npm run build` (supply a port in `.env` if you want a port besides `3000`, example: `PORT=8080`) And start it with `npm run start`
+You can host this site yourself, build using next with `npm run build` (supply a port in `.env` if you want a port besides `3000`, example: `PORT=8080`) \
+And start it with `npm run start`
 
 ## Task list
 
