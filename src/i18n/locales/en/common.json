@@ -2,6 +2,7 @@
 	"pageTitle": "Rain Notifier",
 	"pageTitleConnected": "Rain Notifier - Connected",
 	"pageTitleReconnecting": "Rain Notifier - Reconnecting",
+	"pageDescription": "A web-based rain notifier for RBLXRoll",
 	"socketConnecting": "Connecting",
 	"socketConnectingDescription": "We're connecting you to our socket for live notifications",
 	"socketConnected": "Connected",
