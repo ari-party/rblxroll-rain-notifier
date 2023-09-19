@@ -1,0 +1,19 @@
+{
+	"pageTitle": "Rain Notifier",
+	"pageTitleConnected": "Rain Notifier - Verbonden",
+	"pageTitleReconnecting": "Rain Notifier - Herverbinden",
+	"socketConnecting": "Verbinden",
+	"socketConnectingDescription": "We verbinden je aan onze socket voor actuele notificaties",
+	"socketConnected": "Verbonden",
+	"socketConnectedDescription": "Je bent verbonden aan onze socket, je zal meldingen krijgen op basis van je voorkeuren hieronder",
+	"socketReconnecting": "Herverbinden",
+	"socketReconnectingDescription": "Connectie was verloren, houd je vast!",
+	"socketNotificationTitle": "RBLXRoll: Rain Notifier",
+	"socketNotificationBody": "Een rain van {{amount}} R$ is actief",
+	"settings": "Instellingen",
+	"settingsSoundName": "Geluid",
+	"settingsSoundDescription": "Speed een geluid af wanneer een rain actief is",
+	"settingsNotificationName": "Notificatie",
+	"settingsNotificationDescription": "Laat een notificatie zien wanneer een rain actief is",
+	"footerGithub": "Bezoek deze website op"
+}
