@@ -6,7 +6,7 @@ import iconGithubMarkWhite from "@public/assets/github-mark-white.png";
 import Notifier from "@/features/notifier";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -21,12 +21,12 @@ export default function Index() {
 
 	return (
 		<>
-			<Helmet>
+			<Head>
 				<title>{t("pageTitle")}</title>
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content={t("pageTitle")} />
 				<meta name="og:description" content={t("pageDescription")} />
-			</Helmet>
+			</Head>
 			<main className={styles.main}>
 				<div className={styles.content}>
 					<Notifier />
