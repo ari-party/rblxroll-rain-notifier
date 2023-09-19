@@ -95,8 +95,10 @@ export default function Notifier() {
 								(e) => {
 									const checked = e.target.checked;
 									if (Notification.permission !== "granted") {
-										Notification.requestPermission().then(() => {
-											setNotificationEnabled(checked);
+										Notification.requestPermission().then((result) => {
+											if (result === "granted") {
+												setNotificationEnabled(checked);
+											}
 										});
 									} else {
 										setNotificationEnabled(checked);
