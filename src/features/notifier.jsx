@@ -7,12 +7,7 @@ import Setting, { InputSwitch } from "../components/setting";
 import useLocalStorage from "@robertsspaceindustries/react-localsettings";
 import { io } from "socket.io-client";
 import { useTranslation } from "next-i18next";
-
-function numberfy(amount) {
-	amount = Number(amount).toFixed(2).split(".");
-	amount = Number(amount[0]).toLocaleString() + "." + amount[1];
-	return amount;
-}
+import todec from "2dec";
 
 export default function Notifier() {
 	const { t } = useTranslation();
@@ -59,7 +54,7 @@ export default function Notifier() {
 
 				if (notificationEnabled && !notificationBlocked) {
 					new Notification(t("socketNotificationTitle"), {
-						body: t("socketNotificationBody", { amount: numberfy(rain.amount) }),
+						body: t("socketNotificationBody", { amount: todec(rain.amount) }),
 					});
 				}
 			}

@@ -23,6 +23,7 @@
 		"@emotion/styled": "^11.11.0",
 		"@mui/material": "^5.14.9",
 		"@robertsspaceindustries/react-localsettings": "^1.0.5",
+		"2dec": "^1.0.2",
 		"dotenv": "^16.3.1",
 		"i18next": "^23.5.1",
 		"next": "^13.4.19",
