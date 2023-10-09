@@ -6,6 +6,7 @@ import Notifier from "@/features/notifier.jsx";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import Script from "next/script";
 
 export async function getStaticProps({ locale }) {
 	return {
@@ -20,6 +21,14 @@ export default function Index() {
 
 	return (
 		<>
+			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-D5N1F03L69" />
+			<Script id="google-analytics">{`
+			  	window.dataLayer = window.dataLayer || [];
+  				function gtag(){dataLayer.push(arguments);}
+  				gtag('js', new Date());
+
+				gtag('config', 'G-D5N1F03L69');
+			`}</Script>
 			<Head>
 				<title>{t("page_title")}</title>
 				<meta property="og:type" content="website" />
