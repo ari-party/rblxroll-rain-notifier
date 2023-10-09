@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import styles from "@/styles/notifier.module.css";
-import { merge } from "@/utils/merge";
+import { merge } from "@/utils/merge.js";
 import text from "@/styles/text.module.css";
-import Ellipsis from "@/components/ellipsis";
-import Setting, { InputSwitch } from "../components/setting";
+import Ellipsis from "@/components/ellipsis.jsx";
+import Setting, { InputSwitch } from "../components/setting.jsx";
 import useLocalStorage from "@robertsspaceindustries/react-localsettings";
 import { io } from "socket.io-client";
 import { useTranslation } from "next-i18next";
