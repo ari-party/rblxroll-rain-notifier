@@ -30,8 +30,6 @@ export default function Index() {
 			<main className={styles.main}>
 				<div className={styles.content}>
 					<Notifier />
-					{/* <span className={text.eyebrow}>Statistics</span>
-				<div className={styles.statistics}></div> */}
 				</div>
 				<footer className={styles.footer}>
 					<Link className={styles.github} href="https://github.com/robertsspaceindustries/rblxroll-rain-notifier" target="_blank">
