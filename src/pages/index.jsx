@@ -34,6 +34,8 @@ export default function Index() {
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content={t("page_title")} />
 				<meta name="og:description" content={t("page_description")} />
+				<meta name="theme-color" content="#bb86fc" /> {/* globals.css' --primary */}
+				<meta name="color-scheme" content="dark" />
 			</Head>
 			<main className={styles.main}>
 				<div className={styles.content}>
