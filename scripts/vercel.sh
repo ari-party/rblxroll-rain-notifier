@@ -2,7 +2,7 @@
 
 echo "VERCEL_ENV: $VERCEL_ENV"
 
-if [[ "$VERCEL_ENV" == "indev" ]] ; then
+if [[ "$VERCEL_ENV" == "development" ]] ; then
   echo "🛑 - Build not permitted"
   exit 0;
 else
