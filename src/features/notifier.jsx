@@ -12,8 +12,8 @@ import todec from "2dec";
 export default function Notifier() {
 	const { t } = useTranslation();
 
-	const [primary, setPrimary] = useState(<Ellipsis prefix={t("socketConnecting")} />);
-	const [sub, setSub] = useState(t("socketConnectingDescription"));
+	const [primary, setPrimary] = useState(<Ellipsis prefix={t("socket_connecting")} />);
+	const [sub, setSub] = useState(t("socket_connecting_description"));
 
 	const [soundEnabled, setSoundEnabled] = useLocalStorage("sound", true);
 	const [notificationEnabled, setNotificationEnabled] = useLocalStorage("notification", false);
@@ -33,18 +33,18 @@ export default function Notifier() {
 		});
 
 		socket.on("connect", () => {
-			setPrimary(t("socketConnected"));
-			setSub(t("socketConnectedDescription"));
-			document.title = t("pageTitleConnected");
+			setPrimary(t("socket_connected"));
+			setSub(t("socket_connected_description"));
+			document.title = t("page_title_connected");
 		});
 
 		socket.on("disconnect", () => {
-			setPrimary(<Ellipsis prefix={t("socketReconnecting")} />);
-			setSub(t("socketReconnectingDescription"));
-			document.title = t("pageTitleReconnecting");
+			setPrimary(<Ellipsis prefix={t("socket_reconnecting")} />);
+			setSub(t("socket_reconnecting_description"));
+			document.title = t("page_title_reconnecting");
 		});
 
-		socket.on("rainRunning", function (rain) {
+		socket.on("rainRunning", (rain) => {
 			if (localStorage.getItem("rain-cache") !== rain._id) {
 				localStorage.setItem("rain-cache", rain._id);
 
@@ -53,10 +53,8 @@ export default function Notifier() {
 				}
 
 				if (notificationEnabled && !notificationBlocked) {
-					const capitalizedRainType = rain.type.charAt(0).toUpperCase() + rain.type.slice(1);
-
-					new Notification(t(`rain${capitalizedRainType}NotificationTitle`), {
-						body: t(`rain${capitalizedRainType}NotificationBody`, {
+					new Notification(t(`rain_${rain.type}_notification_title`), {
+						body: t(`rain_${rain.type}_notification_body`, {
 							amount: todec(rain.amount),
 							username: rain.creator?.username,
 						}),
@@ -75,7 +73,7 @@ export default function Notifier() {
 			<div className={styles.settings}>
 				<span className={text.eyebrow}>{t("settings")}</span>
 				<div className={styles.settingContainer}>
-					<Setting name={t("settingsSoundName")} description={t("settingsSoundDescription")}>
+					<Setting name={t("settings_sound_name")} description={t("settings_sound_description")}>
 						<InputSwitch
 							isChecked={soundEnabled}
 							onChange={useCallback(
@@ -87,7 +85,7 @@ export default function Notifier() {
 							)}
 						/>
 					</Setting>
-					<Setting name={t("settingsNotificationName")} description={t("settingsNotificationDescription")}>
+					<Setting name={t("settings_notification_name")} description={t("settings_notification_description")}>
 						<InputSwitch
 							disabled={notificationBlocked}
 							isChecked={notificationEnabled}

@@ -21,10 +21,10 @@ export default function Index() {
 	return (
 		<>
 			<Head>
-				<title>{t("pageTitle")}</title>
+				<title>{t("page_title")}</title>
 				<meta property="og:type" content="website" />
-				<meta property="og:title" content={t("pageTitle")} />
-				<meta name="og:description" content={t("pageDescription")} />
+				<meta property="og:title" content={t("page_title")} />
+				<meta name="og:description" content={t("page_description")} />
 			</Head>
 			<main className={styles.main}>
 				<div className={styles.content}>
@@ -32,7 +32,7 @@ export default function Index() {
 				</div>
 				<footer className={styles.footer}>
 					<Link className={styles.github} href="https://github.com/robertsspaceindustries/rblxroll-rain-notifier" target="_blank">
-						{t("footerGithub")} <Image src={iconGithubMarkWhite} alt="GitHub" width={20} />
+						{t("footer_github")} <Image src={iconGithubMarkWhite} alt="GitHub" width={20} />
 					</Link>
 				</footer>
 			</main>
