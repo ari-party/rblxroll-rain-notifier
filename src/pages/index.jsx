@@ -1,7 +1,6 @@
 import styles from "@/styles/index.module.css";
 import Link from "next/link";
 import Image from "next/image";
-// import text from "@/styles/text.module.css";
 import iconGithubMarkWhite from "@public/assets/github-mark-white.png";
 import Notifier from "@/features/notifier";
 import { useTranslation } from "next-i18next";
