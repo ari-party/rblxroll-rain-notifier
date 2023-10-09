@@ -2,7 +2,7 @@ import styles from "@/styles/index.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import iconGithubMarkWhite from "@public/assets/github-mark-white.png";
-import Notifier from "@/features/notifier";
+import Notifier from "@/features/notifier.jsx";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
