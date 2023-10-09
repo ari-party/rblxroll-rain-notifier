@@ -15,4 +15,3 @@ And start it with `npm run start`
 
 -   [x] Basic UI
 -   [x] Functional notifier
--   [ ] Statistics and graphs
