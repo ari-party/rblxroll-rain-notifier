@@ -25,8 +25,11 @@
 	"plugins": ["react"],
 	"rules": {
 		"linebreak-style": 0,
-		"quotes": ["error", "double"],
 		"semi": ["error", "always"],
-		"no-constant-condition": "off"
+		"no-constant-condition": "off",
+		"no-async-promise-executor": "off",
+		"import/extensions": ["error", "ignorePackages"],
+		"no-unused-vars": "warn",
+		"prefer-const": "warn"
 	}
 }
