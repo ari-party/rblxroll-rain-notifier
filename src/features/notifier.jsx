@@ -53,8 +53,13 @@ export default function Notifier() {
 				}
 
 				if (notificationEnabled && !notificationBlocked) {
-					new Notification(t("socketNotificationTitle"), {
-						body: t("socketNotificationBody", { amount: todec(rain.amount) }),
+					const capitalizedRainType = rain.type.charAt(0).toUpperCase() + rain.type.slice(1);
+
+					new Notification(t(`rain${capitalizedRainType}NotificationTitle`), {
+						body: t(`rain${capitalizedRainType}NotificationBody`, {
+							amount: todec(rain.amount),
+							username: rain.creator?.username,
+						}),
 					});
 				}
 			}
