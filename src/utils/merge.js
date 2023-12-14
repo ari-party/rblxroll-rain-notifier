@@ -5,5 +5,5 @@
  * @returns {string}
  */
 export function merge() {
-	return [...arguments].join(" ");
+  return [...arguments].join(' ');
 }

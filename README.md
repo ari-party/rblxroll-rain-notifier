@@ -13,5 +13,5 @@ And start it with `npm run start`
 
 ## Task list
 
--   [x] Basic UI
--   [x] Functional notifier
+- [x] Basic UI
+- [x] Functional notifier

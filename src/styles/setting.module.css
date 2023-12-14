@@ -1,31 +1,29 @@
 .setting {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: center;
-	padding-bottom: 1em;
-	column-gap: 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+  column-gap: 1em;
 }
 
 .setting + .setting {
-	border-top: 1px solid #ffffff10;
-	padding-top: 1em;
+  border-top: 1px solid #ffffff10;
+  padding-top: 1em;
 }
 
 .details {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	flex-direction: column;
-	flex-wrap: wrap;
-	gap: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-flow: column wrap;
+  gap: 4px;
 }
 
 .name {
-	font-size: 1.125em;
+  font-size: 1.125em;
 }
 
 .description {
-	color: #ffffffb1;
+  color: #ffffffb1;
 }
