@@ -1,23 +1,23 @@
 .notifier {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .sub {
-	color: #aaa;
+  color: #aaa;
 }
 
 .settings {
-	margin-top: calc(2em + 1em);
-	margin-bottom: 2em;
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	width: 100%;
+  margin-top: calc(2em + 1em);
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
 }
 
 .settingContainer {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

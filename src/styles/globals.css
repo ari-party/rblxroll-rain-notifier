@@ -3,58 +3,58 @@
     https://lh3.googleusercontent.com/tv7J2o4ZiSmLYwyBslBs_PLzKyzI8QUV5qdvHGfoAQn9r7pY4Hj5SmW27m3zUWeDtRSE8Cb5_5PQmkbavDfw7XbIL8EodIKZhilRdg=w1064-v0
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-	--primary: #bb86fc;
-	--onPrimary: #000;
-	--primaryWeight: 200;
-	--primaryFont: "Roboto", sans-serif;
-	--primaryVariant: #3700b3;
-	--onPrimaryVariant: var(--onPrimary);
-	--primaryVariantWeight: 700;
-	--primaryVariantFont: "Poppins", sans-serif;
-	--secondary: #03dac6;
-	--onSecondary: var(--onPrimary);
-	--secondaryWeight: var(--primaryWeight);
-	--secondaryFont: "Roboto", sans-serif;
-	--background: #121212;
-	--onBackground: #fff;
-	--surface: var(--background);
-	--onSurface: var(--onBackground);
-	--error: #cf6679;
-	--onError: var(--onPrimary);
-	--errorFont: "Roboto", sans-serif;
+  --primary: #bb86fc;
+  --onPrimary: #000;
+  --primaryWeight: 200;
+  --primaryFont: 'Roboto', sans-serif;
+  --primaryVariant: #3700b3;
+  --onPrimaryVariant: var(--onPrimary);
+  --primaryVariantWeight: 700;
+  --primaryVariantFont: 'Poppins', sans-serif;
+  --secondary: #03dac6;
+  --onSecondary: var(--onPrimary);
+  --secondaryWeight: var(--primaryWeight);
+  --secondaryFont: 'Roboto', sans-serif;
+  --background: #121212;
+  --onBackground: #fff;
+  --surface: var(--background);
+  --onSurface: var(--onBackground);
+  --error: #cf6679;
+  --onError: var(--onPrimary);
+  --errorFont: 'Roboto', sans-serif;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	border: none;
-	outline: none;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: var(--background);
-	color: var(--onBackground);
-	font-weight: var(--primaryWeight);
-	font-family: var(--primaryFont);
-	width: 100vw;
-	overflow-x: hidden;
-	min-height: 100vh;
-	overflow-y: auto;
+  background-color: var(--background);
+  color: var(--onBackground);
+  font-weight: var(--primaryWeight);
+  font-family: var(--primaryFont);
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden auto;
 }
 
 a {
-	color: unset;
-	text-decoration: unset;
+  color: unset;
+  text-decoration: unset;
 }
+
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 hr {
-	height: 1px;
-	background-color: #ffffff10;
+  height: 1px;
+  background-color: #ffffff10;
 }

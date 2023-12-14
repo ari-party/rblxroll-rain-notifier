@@ -3,10 +3,10 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm'
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
-    target-branch: "main"
+      interval: 'weekly'
+    target-branch: 'main'
     labels:
-      - "npm dependencies"
+      - 'npm dependencies'

@@ -7,4 +7,4 @@ Don't use a translator, all languages would've been completed by now if allowed.
 
 | Name                                                | Language(s) |
 | --------------------------------------------------- | ----------- |
-| [Astrid](https://github.com/robertsspaceindustries) | NL      |
+| [Astrid](https://github.com/robertsspaceindustries) | NL          |
